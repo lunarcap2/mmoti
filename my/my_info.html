@@ -1,0 +1,934 @@
+
+<!doctype html>
+<html lang="ko">
+<head>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, width=device-width" />
+	<meta name="keywords" content="2021 전역예정장병 취업박람회" />
+	<meta name="description" content="2021 전역예정장병 취업박람회" />
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="author" content="커리어" />
+	<meta name="Copyright" content="희망을 전하는 취업 포털 커리어" />
+	<title>2021 전역예정장병 취업박람회</title>
+
+	<meta property="og:type" content="website"/>
+	<meta property="og:title" content="2021 전역예정장병 온라인 취업박람회"/>
+	<meta property="og:description" content="2021 전역예정장병 온라인 취업박람회, 취업지원, 채용정보, 라이브 취업특강, 현직자 특강, 온라인 취업컨설팅, 입사지원, 채용정보">
+	<meta property="og:image"  content="http://moti.career.co.kr/images/property_img.jpg"/>
+	<meta property="og:image:width"content="400"/>
+	<meta property="og:image:height" content="210"/>
+	<meta property="og:url" content="https://moti.career.co.kr/"/>
+	<meta property="og:site_name" content="2021 전역예정장병 온라인 취업박람회"/>
+
+	<!-- publishUpdateDt 변수 선언 파일 위치 → /common/constant.asp -->
+	<link rel="shortcut icon" href="/favicon.ico" />
+	<link rel="stylesheet" type="text/css" href="../css/reset.css?202111041400"/>
+	<link rel="stylesheet" type="text/css" href="../css/slick.css?202111041400"/>
+	<link rel="stylesheet" type="text/css" href="../css/common.css?2021110414001"/>
+	<link rel="stylesheet" type="text/css" href="../css/main.css?2021110414003"/>
+	<link rel="stylesheet" type="text/css" href="../css/tools.css?202111041400"/>
+	<link rel="stylesheet" type="text/css" href="../css/sub.css?202111041400"/>
+	<link rel="stylesheet" type="text/css" href="../css/mobile.css?202111041400"/>
+	<link rel="stylesheet" type="text/css" href="../css/popup.css?202111041400"/>
+	<link rel="stylesheet" type="text/css" href="../css/jquery-ui.css?202111041400"/>
+	<link rel="stylesheet" type="text/css" href="../css/swiper.min.css?202111041400"/>
+
+	<link rel="stylesheet" type="text/css" href="../css/mm_resume.css" />
+
+	<script type="text/javascript" src="../js/jquery-1.12.4.js?202111041400"></script>
+	<script type="text/javascript" src="../js/jquery-ui.js?202111041400"></script>
+	<script type="text/javascript" src="/js/placeholders.jquery.min.js?202111041400"></script>
+	<script type="text/javascript" src="../js/ui.js?202111041400"></script>
+	<script type="text/javascript" src="../js/ui.plugin.js?202111041400"></script>
+	<script type="text/javascript" src="../js/customTags.js?202111041400"></script>
+	<script type="text/javascript" src="../js/slick.min.js?202111041400"></script>
+	<script type="text/javascript" src="../js/swiper.min.js?202111041400"></script>
+
+	<script type="text/javascript" src="../js/comm_2009.js?202111041400"></script>
+	<script type="text/javascript" src="../js/validateCommon.js?202111041400"></script>
+	<script type="text/javascript" src="../js/function_2020.js?202111041400"></script>
+	<script type="text/javascript" src="../js/code.js?202111041400"></script>
+	<script type="text/javascript" src="../js/common2.js?202111041400"></script>
+
+	<script type="text/javascript" src="../js/mm_resume.js"></script>
+	<script>
+		$(document).ready(function(){
+			$(this).customTags();
+		});
+	</script>
+
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+KR&display=swap" rel="stylesheet">
+
+<script type="text/javascript">
+	// SMS 인증 번호 전송
+	/* start */
+	function fnAuthSms() {
+		if ($("#mobileAuthNumChk").val() == "4") {
+			alert("인증이 완료되었습니다.");
+			return;
+		}
+
+		$("#hd_idx").val("");
+
+		var strEmail;
+		var contact = $("#hp").val();
+
+		if (Authchk_ing) {
+			alert("처리중 입니다. 잠시만 기다려 주세요.");
+		} else {
+			if(contact=="“-” 생략하고 숫자만 입력해 주세요."){
+				contact="";
+			}
+
+			if(contact==""){
+				alert("연락처를 입력해 주세요.");
+				$("#hp").focus();
+				return;
+			}
+
+			if(contact.length<10){
+				alert("정확한 연락처를 입력해 주세요.");
+				$("#hp").focus();
+				return;
+			}
+			else {
+				Authchk_ing = true;
+
+				var strUrl = "https://app.career.co.kr/sms/career/Authentication";
+
+				var parm = {};
+
+				parm.authCode	= "1";		// sms:1 | email:2
+				parm.authvalue	= $("#hp").val();		// 핸드폰 no( - 는 입력 해도 되고 안해도 됩니다.)
+				parm.sitename	= "2021 전역예정장병 취업박람회";	// sms 발송시 해당 내용으로 입력 됩니다.
+				parm.sitecode	= "37";		// sitecode(꼭 해당 사이트 코드를 입력하세요) 발송 log 및 email 발송시 구분합니다. => 코드 정의(커리어 : 2, 박람회 : 37)
+				parm.memkind	= "개인";
+				parm.ip			= "";		// 개인 IP
+				parm.callback	= "jsonp_sms_callback";
+
+				$("#aMobile").text("인증번호 재전송");
+				$.ajax({
+					url: strUrl
+					, dataType: "jsonp"
+					, type: "post"
+					, data: parm
+					, success: function (data) {
+						//alert("sccess : " + data.length);
+					}
+					, error: function (jqXHR, textStatus, errorThrown) {
+						//alert(textStatus + ", " + errorThrown);
+					}
+				});
+			}
+		}
+	}
+
+	// Result 처리는 이곳에서 합니다.
+	function jsonp_sms_callback(data) {
+		Authchk_ing = false;
+		if ($.trim(data.result) == "true") {
+			$("#mobileAuthNumChk").val("1");
+
+			$("#phone_box").hide();
+			$("#timeCntdown").show();
+			fnDpFirst();
+			fncDpTm(); //카운트
+
+			$("#hd_idx").val(data.result_idx);
+			alert("인증번호가 발송되었습니다.");
+			$("#rsltAuthArea").show();
+			$("#mobileAuthNumber").val("");
+			$("#mobileAuthNumber").focus();
+			$("#hd_kind").val("1");
+		} else {
+			$("#timeCntdown").hide();
+			$("#rsltAuthArea").hide();
+			$("#emailAuthNumChk").val("0");
+			alert("인증번호 발송이 실패하였습니다.");
+		}
+	}
+	/* end */
+
+	// 인증번호 확인
+	/* start */
+	function fnAuth() {
+		if ($("#hd_kind").val() == "1" && $("#mobileAuthNumChk").val() == "4") {
+			alert("인증이 완료되었습니다.");
+			return;
+
+		} else if ($.trim($("#hd_idx").val()) == "") {
+			alert("인증번호가 맞지 않습니다. 인증번호를 확인해 주세요.");
+			return;
+		}
+
+		$("#mobileAuthNumber").val($.trim($("#mobileAuthNumber").val()));
+		if  ($("#hd_kind").val() == "1") {
+			if ($.trim($("#mobileAuthNumber").val()) == "") {
+				alert("인증번호를 입력해 주세요.");
+				$("#mobileAuthNumber").focus();
+				return;
+			}
+		}
+
+		var strUrl	= "https://app.career.co.kr/sms/career/AuthenticationResult";
+		var parms	= {};
+
+		var strAuthKey = "";
+		if ($("#hd_kind").val() == "2") {
+			strAuthKey = $("#emailAuthNumber").val();
+		} else if ($("#hd_kind").val() == "1") {
+			strAuthKey = $("#mobileAuthNumber").val();
+		} else {
+			return;
+		}
+
+		if ($.trim($("#hd_idx").val()) == "" || ($.trim($("#emailAuthNumber").val()) == "" && $.trim($("#mobileAuthNumber").val()) == "")) {
+			return;
+		}
+
+		parms.authCode	= $("#hd_kind").val();	// sms:1 | email:2
+
+		parms.authvalue	= strAuthKey;			// 발송된 인증 KEY Value
+
+		parms.idx		= $("#hd_idx").val();	// 발송된 인증 번호
+		parms.callback	= "jsonp_result_callback";
+		$.ajax({
+			url: strUrl
+				, dataType: "jsonp"
+				, type: "post"
+				, data: parms
+				, success: function (data) {
+					//alert("sccess : " + data.length);
+				}
+				, error: function (jqXHR, textStatus, errorThrown) {
+					//alert(textStatus + ", " + errorThrown);
+				}
+		});
+	}
+
+	//Result 처리는 이곳에서 합니다.
+	function jsonp_result_callback(data) {
+		if ($("#hd_kind").val() == "1") {
+			if ($.trim(data.result_idx) == "Y") {
+				$("#mobileAuthNumChk").val("4");
+				$("#rsltMsg1").show();
+				$("#authproc").val("1");
+				$("#timeCntdown").hide();
+				$("#rsltMsg2").hide();
+			} else {
+				$("#mobileAuthNumChk").val("3");
+				$("#rsltMsg1").hide();
+				$("#timeCntdown").show();
+				$("#rsltMsg2").show();
+			}
+		}
+	}
+	/* end */
+
+	var emailchk_ing	= false;
+	var Authchk_ing		= false;
+
+	var min = 60;
+	var sec = 60;
+	var ctm;			// 표시 시간
+	var inputtime = 3;	// 입력분
+	var tstop;			// 타이머 정지
+
+	Number.prototype.dptm = function () { return this < 10 ? '0' + this : this; } //분에 "0" 넣기
+
+	function fnDpFirst() {
+		clearTimeout(tstop);
+		ctm = sec * inputtime;
+	}
+
+	function fncDpTm() {
+		var cmi = Math.floor((ctm % (min * sec)) / sec).dptm();
+		var csc = Math.floor(ctm % sec).dptm();
+
+		//document.getElementById("ctm1").innerText = cmi + ' : ' + csc; //값 보여줌
+		//document.getElementById("").innerText = '남은시간 ' + cmi + ' : ' + csc; //값 보여줌
+		$("#timeCntdown").text('(' + cmi + ' : ' + csc + ")");
+		if ((ctm--) <= 0) {
+			ctm = sec * inputtime;
+			clearTimeout(tstop);
+			//재전송버튼
+			//인증시간 초과 meassage
+		}
+		else {
+			tstop = setTimeout("fncDpTm()", 1000);
+		}
+	}
+
+	// 인증번호 검증 함수 호출
+	function fnAuthNoChk(){
+		fnAuth();
+	}
+	// 개인정보 수정
+	function fn_editPrivacy(editYN) {
+		/*군무원일때 입력한 값-S*/
+		var militaryPersonnelCorps	= $('#military_personnel_corps').val();		//소속부대명
+		var militaryPersonnelNumber	= $('#military_personnel_number').val();	//순번
+		/*군무원일때 입력한 값-E*/
+
+		/*군무원이 아닐때 입력한 값-S*/
+		var militaryGroup	= $('#military_group option:selected').val();		//군별(1:육군, 2:해군, 3:공군, 4:해병대)
+		var militaryCorps	= $('#military_corps').val();						//소속부대명
+		var militaryRank	= $('input[name="military_rank"]:checked').val();	//계급및 직책(1:이병, 2:일병, 3:상병, 4:병장, 5:하사, 6:중사, 7:상사, 8:원사, 9:준위, 10:소위, 11:중위, 12:대위, 13:소령, 14:중령, 15:대령)
+		var militaryNumber	= $('#military_number').val();						//군번
+		var militaryEndDT	= $('#military_end_date').val();					//전역일
+		/*군무원이 아닐때 입력한 값-E*/
+
+		/*희망지역,취업상담 희망여부 추가-S*/
+		var hopearea	= $('input[name="hope_area"]:checked').val();	//희망지역
+																		//서울 인천권	- 1:서울(종합), 34:서울(강남), 2:서울(관악), 6:서울 남부, 3:서울 북부, 4:서울 동부, 5:서울 서부, 41:서울(성신여대), 71:인천 주안
+																		//경기권		- 36:경기 고양, 50:경기 수원, 27:경기 안산, 7:경기 안양, 26:경기 부천, 9:경기 성남
+																		//충청권		- 35:천안
+																		//영남권		- 43:대구 서부, 42:대구, 31:부산, 11:부산 동부, 70:부산 남산
+		var hopeCheck	= $('input[name="hopeCheck"]:checked').val();	//취업 상담 희망여부
+		/*희망지역,취업상담 희망여부 추가-E*/
+		var agreeCheck	= $('input[name="agreeCheck"]:checked').val();	// 이용약관 및 개인정보 수집 동의
+
+		if(editYN == "Y") {
+			if ($("#name").val() == "") {
+				alert("이름을 입력해주시기 바랍니다.");
+				$("#name").focus();
+				return;
+			}
+
+			if ($("#hp").val() == "") {
+				alert("연락처를 입력해주시기 바랍니다.");
+				$("#hp").focus();
+				return;
+			}
+
+			if ($("#mobileAuthNumChk").val() != "4") {
+				alert("본인 확인을 위해 휴대폰번호를 인증해 주세요.");
+				$("#txtPhone").focus();
+				return;
+			}
+
+			var regExp = /^[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*.[a-zA-Z]{2,3}$/i;
+
+			if ($("#email").val() == "") {
+				alert("E-mail를 입력해주시기 바랍니다.");
+				$("#email").focus();
+				return;
+			}
+			else {
+				if ($("#email").val().match(regExp) == null) {
+					alert('이메일을 정확하게 입력해주시기 바랍니다.');
+					$("#email").focus();
+					return;
+				}
+			}
+			if(militaryGroup == '') {
+				alert('군별을 선택해 주세요.');
+				$('#military_group').focus();
+				return;
+			}
+
+			if(militaryCorps == '') {
+				alert('소속부대명을 입력해 주세요.');
+				$('#military_corps').focus();
+				return;
+			}
+
+			if(typeof militaryRank == 'undefined' || militaryRank == '' || militaryRank == null) {
+				alert('계급 및 직책을 선택해 주세요.');
+				$('#military_rank').focus();
+				return;
+			}
+
+			if(militaryNumber == '') {
+				alert('군번을 입력해 주세요.');
+				$('#military_number').focus();
+				return;
+			}
+
+			if(militaryEndDT == '') {
+				alert('전역일을 입력해 주세요.');
+				$('#military_end_date').focus();
+				return;
+			}
+			if(typeof hopearea == 'undefined' || hopearea == '' || hopearea == null) {
+				alert('취업활동 희망 지역을 선택해 주세요.');
+				$('input[name="hope_area"]').focus();
+				return;
+			}
+
+			if(typeof hopeCheck == 'undefined' || hopeCheck == '' || hopeCheck == null) {
+				alert('취업 상담(사후관리) 희망 여부를 선택해 주세요.');
+				$('input[name="hopeCheck"]').focus();
+				return;
+			}
+
+			var obj=document.frm_modify;
+			if(confirm('입력하신 정보로 개인정보를 수정 하시겠습니까?')) {
+
+				obj.method = "post";
+				obj.action = "my_info_modify.asp";
+				obj.submit();
+
+			}else {
+				alert("정보수정이 취소되었습니다.");
+				location.href = "./my_info_T.asp";
+			}
+		}
+		else {
+			if(($("#name").val() != "") || ($("#hp").val() != "") || ($("#email").val() != "")) {
+				if(confirm("수정된 내용이 있습니다. 취소하시겠습니까?")) {
+					alert("정보수정이 취소되었습니다.");
+					location.href = "./my_info_T.asp";
+				}
+			}
+			else {
+				$('.popup, .pop_dim').hide();
+			}
+		}
+	}
+
+	// 휴대폰번호 중복 가입 검증
+	function fn_chkJoin(){
+		if($("#hp").val()=="“-” 생략하고 숫자만 입력해 주세요."){
+			$("#hp").val("");
+		}
+
+		if($("#hp").val()==""){
+			alert("연락처를 입력해 주세요.");
+			$("#hp").focus();
+			return;
+		}
+
+		if($("#hp").val().length<10){
+			alert("정확한 연락처를 입력해 주세요.");
+			$("#hp").focus();
+			return;
+		} else {
+			$.ajax({
+				type: "POST"
+				, url: "my_phone_Check.asp"
+				, data: { user_id : "lunarcap2_wk", user_phone: $("#hp").val() }
+				, dataType: "text"
+				, async: true
+				, success: function (data) {
+					// 기존 등록된 휴대폰번호가 존재하면 X, 없으면 O
+					if (data.trim() == "X") {
+						alert("입력하신 휴대폰번호로 회원 가입된 내역이 존재합니다.\n아이디 찾기를 이용하여 기존 가입하신 계정을 확인해 주세요.");
+						return;
+					} else {
+						fnAuthSms();
+					}
+				}
+				, error: function (XMLHttpRequest, textStatus, errorThrown) {
+					alert(XMLHttpRequest.responseText);
+				}
+
+			});
+		}
+	}
+	function onlyNumber(event){
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ( (keyID >= 48 && keyID <= 57) || (keyID >= 96 && keyID <= 105) || keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 )
+			return;
+		else
+			return false;
+	}
+
+	function removeChar(event) {
+		event = event || window.event;
+		var keyID = (event.which) ? event.which : event.keyCode;
+		if ( keyID == 8 || keyID == 46 || keyID == 37 || keyID == 39 )
+			return;
+		else
+			event.target.value = event.target.value.replace(/[^0-9]/g, "");
+	}
+</script>
+</head>
+
+<body>
+
+
+<script type="text/javascript">
+	//my메뉴 class on 처리
+	var location_path = $(location).attr('pathname');
+	$(document).ready(function () {
+		$('.my_menu .swiper-wrapper').find('a').each(function() {
+			if (location_path.indexOf($(this).attr("href")) >= 0) {
+				$(this).addClass("on");
+			}
+		});
+	});
+</script>
+
+<!-- header -->
+<div  id="header">
+	<div class="header-wrap">
+		<div class="header_my">
+			<div class="my_info">
+				<div class="img_box">
+					<span>
+						
+						<img src="http://www2.career.co.kr/hdrive/fair/mypic/202108/lunarcap2.jpg" alt="사진 이미지">
+						
+					</span>
+				</div>
+				<div class="my_name">
+					<p class="name"><span>박정완</span>님<p>
+					
+					<p class="career">신입<p>
+				</div>
+				
+				<a href="/my/resume/resume_view.asp?rid=833" target="_blank" class="btn resume">이력서 보기</a>
+				
+			</div>
+			<a href="../default.html" class="btn close">asdf</a>
+		</div>
+	</div>
+</div>
+<!-- //header -->
+
+
+
+<div class="info_tb">
+	<!-- <table class="tb">
+		<caption>개인회원</caption>
+		<colgroup>
+		</colgroup>
+		<thead>
+			<tr>
+				<th><span>이력서<br>관리</span></th>
+				<th><span>입사지원<br>관리</span></th>
+				<th><span>스크랩<br>공고</span></th>
+				<th><span>관심기업</span></th>
+				<th><span>이력서<br>열람기업</span></th>
+				<th><span>취업컨설팅</span></th>
+				<th><span>취업특강</span></th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td><a href="resume_list.asp">1</a></td>
+				<td><a href="apply_management_list.asp">0</a></td>
+				<td><a href="scrap_list.asp">0</a></td>
+				<td><a href="attention_list.asp">0</a></td>
+				<td><a href="my_resume_open_list.asp">0</a></td>
+				<td><a href="consulting_list.asp">0</a></td>
+				<td><a href="lecture_list.asp">4</a></td>
+			</tr>
+		</tbody>
+	</table> -->
+	<div class="my_menu">
+		<div class="swiper-wrapper">
+			<div class="swiper-slide">
+				<p><span>이력서<br>관리</span></p>
+				<a href="resume_list.asp">1</a>
+			</div>
+			<div class="swiper-slide">
+				<p><span>입사지원<br>관리</span></p>
+				<a href="apply_management_list.asp">0</a>
+			</div>
+			<div class="swiper-slide">
+				<p><span>스크랩</span></p>
+				<a href="scrap_list.asp">0</a>
+			</div>
+			<div class="swiper-slide">
+				<p><span>관심기업</span></p>
+				<a href="attention_list.asp">0</a>
+			</div>
+			<div class="swiper-slide">
+				<p><span>취업컨설팅/멘토링/모의면접 현황</span></p>
+				<a href="consulting_list.asp">0</a>
+			</div>
+			<div class="swiper-slide">
+				<p><span>취업특강/채용설명회 현황</span></p>
+				<a href="lecture_list.asp">4</a>
+			</div>
+			<div class="swiper-slide">
+				<p><span>화상면접<br>현황</span></p>
+				<a href="my_interview_list.asp">0</a>
+			</div>
+			<!--
+			<div class="swiper-slide">
+				<p><span>취업활동<br>희망지역</span></p>
+				<a href="my_hope_area.asp">-</a>
+			</div>
+			-->
+		</div>
+		<!-- Add Arrows -->
+		<div class="swiper-button-next"></div>
+		<div class="swiper-button-prev"></div>
+	</div>
+	<script>
+		var swiper3 = new Swiper('.my_menu', {
+			slidesPerView: 4.5,
+			centeredSlides: false,
+			spaceBetween: 0,
+			navigation: {
+			nextEl: '.swiper-button-next',
+			prevEl: '.swiper-button-prev',
+			},
+		});
+	</script>
+</div>
+
+
+<!-- container -->
+<div id="contents" class="sub_page">
+	<div class="contents">
+		<form method="post" name="frm_modify" autocomplete="off">
+			<input type="hidden" name="hd_idx" id="hd_idx" value="" /><!-- 번호인증 idx -->
+			<input type="hidden" name="hd_kind" id="hd_kind" value="" />
+			<input type="hidden" name="authproc" id="authproc" value="" />
+			<input type="hidden" name="mobileAuthNumChk" id="mobileAuthNumChk" value="0" />
+
+			<div class="signup_area2">
+				<div class="inputArea">
+					<h4>개인정보 수정 <!--<span class="req">(필수입력)</span>--></h4>
+					<div class="tb_area">
+						<table class="tb">
+							<colgroup>
+								<col style="width:8.5rem"/>
+								<col />
+							</colgroup>
+							<tbody>
+								<tr>
+									<th class="req">이름</th>
+									<td>
+										<div class="inp">
+											<input type="text" id="name" name="name" value="박정완" class="txt placehd" placeholder="이름을 입력해주세요." autocomplete="off" maxlength="12">
+											<p class="txt" id="id_box"></p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th class="req">휴대폰 번호</th>
+									<td>
+										<div class="inp btn2">
+											<div class="sec">
+												<input type="text" id="hp" name="hp" value="010-4612-9906" class="txt placehd" maxlength="13" onkeyup="removeChar(event); changePhoneType(this);" onkeydown="return onlyNumber(event)" placeholder="휴대폰 번호 입력" style="width:65%; padding:0;">
+												<span class="num" id="timeCntdown" style="display:none;">(2:59)</span>
+												<button type="button" id="aMobile" class="btn" onclick="fn_chkJoin(); return false;">인증번호 전송</button>
+												<p class="txt" id="phone_box"></p>
+											</div>
+											<div id="rsltAuthArea" class="sec" style="display:none;">
+												<input type="text" id="mobileAuthNumber" name="mobileAuthNumber" class="txt placehd" maxlength="6" placeholder="인증번호를 입력해 주세요" onkeyup="removeChar(event)" onkeydown="return onlyNumber(event)">
+												<button type="button" class="btn blue" onclick="fnAuthNoChk(); return false;">확인</button>
+												<p class="txt" id="rsltMsg1" style="display:none;">인증번호가 정상 입력 됐습니다.</p>
+												<p class="txt" id="rsltMsg2" style="display:none;">인증번호가 틀립니다.</p>
+											</div>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th class="req">이메일</th>
+									<td>
+										<div class="inp">
+											<input type="text" id="email" name="email" value="a987413@naver.com" class="txt placehd" maxlength="100" placeholder="이메일 주소 입력" autocomplete="off">
+											<p class="txt" id="mail_box"></p>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th class="req"><span style="">군별</span></th>
+									<td>
+										<div class="birth" id="birth">
+											<span class="selectbox" style="width:100%;">
+												<span style="font-size:1rem; padding:0 0 0 0.5rem">군별</span>
+												<select id="military_group" name="military_group" title="군별 선택">
+													<option value="">군별선택</option>
+													<option value="1" >육군</option>
+													<option value="2" >해군</option>
+													<option value="3"  selected>공군</option>
+													<option value="4" >해병대</option>
+												</select>
+											</span><!-- .selectbox -->
+										</div><!-- .birth -->
+									</td>
+								</tr>
+								<tr>
+									<th class="req">소속부대</th>
+									<td>
+										<div class="inp">
+											<input type="text" class="txt placehd" id="military_corps" name="military_corps" value="공군 20전투비행단" placeholder="소속부대명" maxlength="100">
+										</div>
+									</td>
+								</tr>
+								
+								<tr>
+									<th class="req">병 사</th>
+									<td class="td2 td2">
+										<div class="rdi_box">
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="1"  type="radio"><span>이병</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="2"  type="radio"><span>일병</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="3"  type="radio"><span>상병</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="4"  Checked type="radio"><span>병장</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th class="req">간 부</th>
+									<td class="td3">
+										<div class="rdi_box">
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="5"  type="radio"><span>하사</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="6"  type="radio"><span>중사</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="7"  type="radio"><span>상사</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="8"  type="radio"><span>원사</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="9"  type="radio"><span>준위</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="10"  type="radio"><span>소위</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="11"  type="radio"><span>중위</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="12"  type="radio"><span>대위</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="13"  type="radio"><span>소령</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="14"  type="radio"><span>중령</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="military_rank" value="15"  type="radio"><span>대령</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								
+								<tr>
+									<th class="req">군번</th>
+									<td>
+										<div class="inp">
+											<input type="text" class="txt placehd" id="military_number" name="military_number" value="1070010876" placeholder="군번을 입력해 주세요" onkeyup="removeChar(event);" onkeydown="return onlyNumber(event)">
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th class="req"><span>전역일</span></th>
+									<td>
+										
+											<span style="font-size:1rem; color:#000;">
+												<input type="hidden" style="width:80%;" id="military_end_date" name="military_end_date" value="2021-04-02" readonly>
+												2021-04-02<br><br>
+												* 전역예정일 수정시 박람회 운영사무국으로 연락부탁드립니다.
+											</span>
+										
+											
+									</td>
+								</tr>
+								<tr>
+									<th class="req">서울 및 인천</th>
+									<td class="td2 td2">
+										<div class="rdi_box">
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="1"  type="radio"><span>서울종합</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="34"  type="radio"><span>서울 강남</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="2"  type="radio"><span>서울 관악</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="6"  type="radio"><span>서울 남부</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="3"  type="radio"><span>서울 북부</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="4"  type="radio"><span>서울 동부</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="5"  type="radio"><span>서울 서부</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="41"  type="radio"><span>서울(성신여대)</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="71"  type="radio"><span>인천 주안</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th class="req">경기권</th>
+									<td class="td3">
+										<div class="rdi_box">
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="36"  type="radio"><span>경기 고양</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="50"  type="radio"><span>경기 수원</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="27"  type="radio"><span>경기 안산</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="7"  type="radio"><span>경기 안양</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="26"  type="radio"><span>경기 부천</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="9"  type="radio"><span>경기 성남</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th class="req">충청권</th>
+									<td class="td3">
+										<div class="rdi_box">
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="35"  type="radio"><span>천안</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th class="req">영남권</th>
+									<td class="td3">
+										<div class="rdi_box">
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="43"  type="radio"><span>대구 서부</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="42"  type="radio"><span>대구</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="31"  type="radio"><span>부산</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="11"  type="radio"><span>부산 동부</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hope_area" value="70"  type="radio"><span>부산 남산</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+								<tr>
+									<th class="req" style="line-height:1.3; padding:1rem 1.25rem 1rem; box-sizing:border-box;">취업 상담<br />(사후관리)<br />희망 여부</th>
+									<td>
+										<div class="rdi_box">
+											<label class="radiobox" style="padding-right:1%">
+												<input class="rdi" name="hopeCheck" value="1"  type="radio"><span style="font-size:1rem;">희망합니다.</span>
+											</label>
+											<label class="radiobox">
+												<input class="rdi" name="hopeCheck" value="2"  type="radio"><span style="font-size:1rem;">비희망 합니다.</span>
+											</label>
+										</div>
+									</td>
+								</tr>
+							</tbody>
+						</table>
+
+							<!--<label class="checkbox off checkbox1" for="chk_military_personnel">
+							<input type="checkbox" id="chk_military_personnel" name="chk_military_personnel" class="chk" onclick="FN_chk_military_personnel(this);">
+							<span>군무원인 경우 선택</span>
+						</label>
+
+					  //군무원 선택 S
+						<div id="military_personnel" style="display:none;">
+							<h4>군무원 기타사항 입력 <span class="req">(필수입력)</span></h4>
+							<table class="tb">
+								<colgroup>
+									<col style="width:8.5rem"/>
+									<col />
+								</colgroup>
+								<tbody>
+									<tr>
+										<th class="req">소속부대명</th>
+										<td>
+											<div class="inp">
+												<input type="text" class="txt placehd" id="military_personnel_corps" name="military_personnel_corps" placeholder="소속부대명" maxlength="100" style="width:100%;">
+											</div>
+										</td>
+									</tr>
+
+									<tr>
+										<th class="req">순번</th>
+										<td>
+											<div class="inp">
+												<input type="text" class="txt placehd" id="military_personnel_number" name="military_personnel_number" placeholder="순번을 입력해 주세요" maxlength="6" onkeyup="removeChar(event)" onkeydown="return onlyNumber(event)">
+											</div>
+										</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+						군무원 선택-E-->
+
+
+					</div>
+				</div>
+				
+				<div class="btn_area2">
+							<a href="#fn_editPrivacy" onclick="fn_editPrivacy('Y');return false;" class="btn blue">개인정보수정</a>
+							<a href="#fn_editPrivacy" onclick="fn_editPrivacy('N');return false;" class="btn gray">종료</a>
+				</div>
+				
+			</div><!-- signup_area-->
+		</form>
+	</div><!-- contents -->
+</div><!-- contents -->
+<!-- //container -->
+
+<!-- 하단 -->
+<!-- 하단 -->
+<div id="footer">
+	<div class="footer_area">
+		<div class="footer_box">
+			<img src="../images/safe_img.png" alt="공공데이터 청년인턴 온라인 채용박람회 공식 홈페이지는 [취업포털 커리어]가 제작 및 유지보수를 담당하고 있습니다.Copyrightsⓒ 취업포털 커리어. All rights reserved.">
+			<p>
+				2021 전역예정장병 취업박람회 공식 홈페이지는
+				[취업포털 커리어]가 제작 및 유지보수를 담당하고 있습니다.
+				Copyrights&copy; 취업포털 커리어. All rights reserved.
+			</p>
+		</div><!-- .util-area -->
+	</div><!-- .inner-wrap -->
+</div>
+<!-- //하단 -->
+
+<!-- 모바일용 유입자 추적 스크립트 삽입 [2021-02-05] -->
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-X29JBY5323"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-X29JBY5323');
+</script>
+
+<!-- 하단 -->
+
+</body>
+</html>
+
